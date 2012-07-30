@@ -25,7 +25,7 @@ public class GameHowManyPlayersTest {
     private static final String ADD_TEMPLATE = "%s was added%nThey are player number %s%n";
 
     @Rule
-    public SystemOutRule systemOutRule = new SystemOutRule();
+    public final SystemOutRule systemOutRule = new SystemOutRule();
 
     public static final int MAX_PLAYERS = 5;
 

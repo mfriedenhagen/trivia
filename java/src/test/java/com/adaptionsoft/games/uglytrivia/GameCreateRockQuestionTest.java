@@ -19,11 +19,11 @@ public class GameCreateRockQuestionTest {
     }
 
     @Test
-    public void checkRockQuestionForZero() {
+    public void checkAnswerForRockQuestionForZero() {
         assertEquals("Rock Question 0", sut.createRockQuestion(0));
     }
     @Test
-    public void checkRockQuestionForSix() {
+    public void checkAnswerRockQuestionForSix() {
         assertEquals("Rock Question 6", sut.createRockQuestion(6));
     }
 }

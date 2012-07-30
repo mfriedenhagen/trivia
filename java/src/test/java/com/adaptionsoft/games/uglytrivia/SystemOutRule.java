@@ -6,7 +6,6 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 
 import org.junit.rules.ExternalResource;
@@ -15,7 +14,7 @@ import org.junit.rules.ExternalResource;
  *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-class SystemOutRule extends ExternalResource {
+public class SystemOutRule extends ExternalResource {
 
     private static final String ENCODING = "UTF-8";
 

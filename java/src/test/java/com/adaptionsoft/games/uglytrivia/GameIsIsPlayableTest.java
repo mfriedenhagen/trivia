@@ -13,7 +13,7 @@ import org.junit.Rule;
  *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-public class GameIsIsPlayable {
+public class GameIsIsPlayableTest {
 
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule();

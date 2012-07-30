@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Mirko Friedenhagen <mirko.friedenhagen@1und1.de>
+ * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
 public class GameTest {
 

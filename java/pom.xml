@@ -4,9 +4,9 @@
     <groupId>com.adaptionsoft.games.trivia</groupId>
     <artifactId>trivia</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>sample project for site generation</name>
+    <name>Trivia Tests</name>
 
-    <description>Integration Test Project</description>
+    <description>Sample Implementation of Trivia Tests</description>
 
     <url>https://github.com/mfriedenhagen/trivia</url>
 

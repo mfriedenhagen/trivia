@@ -38,16 +38,17 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.5-rc1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-            <version>1.4.10</version>
+            <artifactId>powermock-mockito-release-full</artifactId>
+            <version>1.4.12</version>
             <scope>test</scope>
+            <classifier>full</classifier>
+            <exclusions>
+                <exclusion>
+                    <artifactId>testng</artifactId>
+                    <groupId>org.testng</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>

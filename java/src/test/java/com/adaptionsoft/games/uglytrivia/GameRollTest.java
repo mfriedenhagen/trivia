@@ -4,11 +4,11 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Locale;
+
+import org.junit.Test;
 
 /**
  *

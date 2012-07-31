@@ -4,32 +4,21 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Locale;
-import org.junit.Rule;
-import org.junit.rules.ExternalResource;
-import org.junit.rules.TestRule;
-import org.junit.runner.Description;
-import org.junit.runners.model.Statement;
+
+import org.junit.Test;
 
 /**
  *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-public class GameHowManyPlayersTest {
+public class GameHowManyPlayersTest extends AbstractGameTest {
 
     private static final String ADD_TEMPLATE = "%s was added%nThey are player number %s%n";
 
-    @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule();
-
     public static final int MAX_PLAYERS = 5;
-
-    private final Game sut = new Game();
 
     @Test
     public void checkNoPlayers() {

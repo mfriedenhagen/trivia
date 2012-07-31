@@ -15,11 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 import com.google.common.base.Charsets;
-import com.google.common.collect.Collections2;
 import com.google.common.io.Resources;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;

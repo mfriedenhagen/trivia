@@ -4,15 +4,17 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
+import org.junit.Rule;
+
 /**
  *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-public class GameRollTest extends AbstractGameTest {
+public abstract class AbstractGameTest {
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    final Game sut = new Game();
+
+    @Rule
+    public final SystemOutRule systemOutRule = new SystemOutRule();
+
 }

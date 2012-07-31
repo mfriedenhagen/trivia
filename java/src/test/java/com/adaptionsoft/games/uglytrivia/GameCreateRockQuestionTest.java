@@ -4,19 +4,15 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-public class GameCreateRockQuestionTest {
-
-    private final Game sut = new Game();
-
-    public GameCreateRockQuestionTest() {
-    }
+public class GameCreateRockQuestionTest extends AbstractGameTest {
 
     @Test
     public void checkAnswerForRockQuestionForZero() {

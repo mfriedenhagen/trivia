@@ -4,22 +4,20 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
+import static org.hamcrest.Matchers.stringContainsInOrder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Arrays;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
-import org.junit.Rule;
+
 import org.junit.Test;
 
 /**
  *
  * @author mifr
  */
-public class GameWrongAnswerTest {
-
-    @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule();
-    
-    private final Game sut = new Game();
+public class GameWrongAnswerTest extends AbstractGameTest {
 
     @Test(expected=IndexOutOfBoundsException.class)
     public void assertForZeroPlayersThrowsAnIndexOutOfBoundException() {

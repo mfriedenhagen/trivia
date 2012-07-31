@@ -4,21 +4,16 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Rule;
+import org.junit.Test;
 
 /**
  *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-public class GameIsIsPlayableTest {
-
-    @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule();
-
-    private final Game sut = new Game();
+public class GameIsIsPlayableTest extends AbstractGameTest {
 
     @Test
     public void assertThatAGameWithNoPlayersIsNotPlayable() {

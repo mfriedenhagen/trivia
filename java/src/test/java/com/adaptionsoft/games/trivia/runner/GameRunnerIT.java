@@ -34,7 +34,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(GameRunner.class)
-public class GameRunnerTest {
+public class GameRunnerIT {
 
     private static final String ENCODING = "UTF-8";
 

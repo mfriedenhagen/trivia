@@ -73,6 +73,13 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/adaptionsoft/games/trivia/runner/GameRunner.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -9,7 +9,10 @@
     <description>Sample Implementation of Trivia Tests</description>
 
     <url>https://github.com/mfriedenhagen/trivia</url>
-
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>http://huschteguzzel.de/hudson/mirkos-trivia/</url>
+    </ciManagement>
     <inceptionYear>2012</inceptionYear>
     <scm>
         <connection>scm:git:git://github.com/mfriedenhagen/trivia.git</connection>

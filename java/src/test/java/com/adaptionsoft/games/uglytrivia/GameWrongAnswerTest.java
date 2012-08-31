@@ -40,6 +40,7 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         sut.add("Hans Wurst 2");
         assertEquals(0, sut.currentPlayer);
         assertTrue(sut.wrongAnswer());
+        assertEquals(1, sut.currentPlayer);
         assertTrue(sut.wrongAnswer());
         assertEquals("Expected currentPlayer to be reset to 0", 0, sut.currentPlayer);
         final String capturedOut = systemOutRule.toString();

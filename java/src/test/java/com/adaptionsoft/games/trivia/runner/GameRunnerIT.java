@@ -4,18 +4,17 @@
  */
 package com.adaptionsoft.games.trivia.runner;
 
+import com.adaptionsoft.games.uglytrivia.SystemOutRule;
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+import java.io.IOException;
 
-import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
@@ -27,18 +26,10 @@ import static org.mockito.Mockito.when;
  */
 public class GameRunnerIT {
 
-    private static final String ENCODING = "UTF-8";
-
-    private final PrintStream originalSystemOut = System.out;
-
-    private final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    @Rule
+    public final SystemOutRule systemOutRule = new SystemOutRule();
 
     private final Random randomMock = mock(Random.class);
-
-    @Before
-    public void replaceSystemOut() throws UnsupportedEncodingException {
-        System.setOut(new PrintStream(bos, true, ENCODING));
-    }
 
     @Before
     public void parameterizeRandomMock() {
@@ -46,25 +37,14 @@ public class GameRunnerIT {
         when(randomMock.nextInt(9)).thenReturn(6, 9, 2, 4, 7, 0, 5, 1, 0, 2, 8, 4, 2, 3, 8, 1, 2, 5, 1, 7, 8, 4, 5, 7, 8, 1, 3, 1, 9, 2, 9, 6, 2, 2, 1, 0, 2, 6, 1, 2, 8, 9, 7, 1, 3, 5, 2, 5, 1, 3);
     }
 
-    @After
-    public void restoreSystemOut() throws UnsupportedEncodingException {
-        System.setOut(originalSystemOut);
-    }
-
     /**
      * Test of main method, of class GameRunner.
      */
     @Test
-    public void testMain() throws Exception {
+    public void testMain() throws IOException {
         final String expectedStdOut = Resources.toString(Resources.getResource(this.getClass(), "result.txt"), Charsets.UTF_8);
-        System.setOut(new PrintStream(bos, true, ENCODING));
-        try {
-            String[] args = null;            
-            new GameRunner(randomMock).main();
-        } finally {
-            System.setOut(originalSystemOut);
-            final String capturedStdOut = new String(bos.toByteArray(), ENCODING).replaceAll("\r\n", "\n");
-            assertEquals(expectedStdOut, capturedStdOut);
-        }
+        new GameRunner(randomMock).main();
+        final String capturedStdOut = String.valueOf(systemOutRule).replaceAll("\r\n", "\n");
+        assertEquals(expectedStdOut, capturedStdOut);
     }
 }

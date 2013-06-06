@@ -5,9 +5,6 @@
 package com.adaptionsoft.games.trivia.runner;
 
 import static org.junit.Assert.assertEquals;
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.when;
-import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -20,16 +17,14 @@ import com.google.common.io.Resources;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Unfortuna
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(GameRunner.class)
 public class GameRunnerIT {
 
     private static final String ENCODING = "UTF-8";
@@ -59,15 +54,13 @@ public class GameRunnerIT {
     /**
      * Test of main method, of class GameRunner.
      */
-    //@Ignore("Until we have covered all single methods")
     @Test
     public void testMain() throws Exception {
         final String expectedStdOut = Resources.toString(Resources.getResource(this.getClass(), "result.txt"), Charsets.UTF_8);
         System.setOut(new PrintStream(bos, true, ENCODING));
         try {
-            String[] args = null;
-            whenNew(Random.class).withNoArguments().thenReturn(randomMock);
-            GameRunner.main(args);
+            String[] args = null;            
+            new GameRunner(randomMock).main();
         } finally {
             System.setOut(originalSystemOut);
             final String capturedStdOut = new String(bos.toByteArray(), ENCODING).replaceAll("\r\n", "\n");

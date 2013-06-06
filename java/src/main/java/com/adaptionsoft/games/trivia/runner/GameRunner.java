@@ -9,14 +9,17 @@ public class GameRunner {
 
 	private static boolean notAWinner;
 
-	public static void main(String[] args) {
-		Game aGame = new Game();
+        private final Random rand;
+        
+        public GameRunner(Random rand) {
+            this.rand = rand;            
+        }
+        public void main() {
+            	Game aGame = new Game();
 		
 		aGame.add("Chet");
 		aGame.add("Pat");
-		aGame.add("Sue");
-		
-		Random rand = new Random();
+		aGame.add("Sue");				
 	
 		do {
 			
@@ -32,5 +35,8 @@ public class GameRunner {
 			
 		} while (notAWinner);
 		
+        }
+	public static void main(String[] args) {
+            new GameRunner(new Random()).main();
 	}
 }

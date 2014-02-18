@@ -4,12 +4,9 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.hamcrest.Matchers.stringContainsInOrder;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Arrays;
 
 import org.junit.Test;
 
@@ -30,9 +27,9 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         assertEquals(0, sut.currentPlayer);
         assertTrue(sut.wrongAnswer());
         assertEquals("Expected currentPlayer to be reset to 0", 0, sut.currentPlayer);
-        final String capturedOut = systemOutRule.toString();
-        assertThat(capturedOut, stringContainsInOrder(Arrays.asList(
-                "Question was incorrectly answered", "Hans Wurst 1 was sent to the penalty box")));
+        assertThatStdoutContainsInOrder(
+                "Question was incorrectly answered",
+                "Hans Wurst 1 was sent to the penalty box");
     }
     @Test
     public void assertForTwoPlayersCurrentPlayerIsResetAfterTheSecondInvocation() {
@@ -43,11 +40,10 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         assertEquals(1, sut.currentPlayer);
         assertTrue(sut.wrongAnswer());
         assertEquals("Expected currentPlayer to be reset to 0", 0, sut.currentPlayer);
-        final String capturedOut = systemOutRule.toString();
-        assertThat(capturedOut, stringContainsInOrder(Arrays.asList(
+        assertThatStdoutContainsInOrder(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box",
                 "Question was incorrectly answered",
-                "Hans Wurst 2 was sent to the penalty box")));
+                "Hans Wurst 2 was sent to the penalty box");
     }
 }

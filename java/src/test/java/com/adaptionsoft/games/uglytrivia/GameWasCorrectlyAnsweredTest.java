@@ -27,13 +27,11 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         final String name = "Hans Wurst 1";
         sut.add(name);
         assertTrue(sut.wasCorrectlyAnswered());
-        final String actualStdOut = systemOutRule.toString();
-        final String expectedOutput = String.format(Locale.ENGLISH,
+        assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Answer was corrent!!!!%n" +//
-                "%s now has 1 Gold Coins.%n", name, name);
-        assertEquals(expectedOutput, actualStdOut);
+                "%s now has 1 Gold Coins.%n", name, name));
         assertEquals(1, sut.purses[0]);
     }
 
@@ -44,15 +42,13 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.add(name);
         sut.add(name2);
         assertTrue(sut.wasCorrectlyAnswered());
-        final String actualStdOut = systemOutRule.toString();
-        final String expectedOutput = String.format(Locale.ENGLISH,
+        assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "%s was added%n" + //
                 "They are player number 2%n" + //
                 "Answer was corrent!!!!%n" +//
-                "%s now has 1 Gold Coins.%n", name, name2, name);
-        assertEquals(expectedOutput, actualStdOut);
+                "%s now has 1 Gold Coins.%n", name, name2, name));
         assertEquals(1, sut.purses[0]);
     }
 
@@ -63,8 +59,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.wrongAnswer();
         sut.roll(3);
         assertTrue(sut.wasCorrectlyAnswered());
-        final String actualStdOut = systemOutRule.toString();
-        final String expectedOutput = String.format(Locale.ENGLISH,
+        assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //
@@ -77,8 +72,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
                 "Rock Question 0%n" + //
                 "Answer was correct!!!!%n" + //
                 "%s now has 1 Gold Coins.%n",
-                name, name, name, name, name, name);
-        assertEquals(expectedOutput, actualStdOut);
+                name, name, name, name, name, name));
         assertEquals(1, sut.purses[0]);
     }
 
@@ -88,14 +82,12 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.add(name);
         sut.wrongAnswer();
         assertTrue(sut.wasCorrectlyAnswered());
-        final String actualStdOut = systemOutRule.toString();
-        final String expectedOutput = String.format(Locale.ENGLISH,
+        assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //
                 "%s was sent to the penalty box%n",
-                name, name);
-        assertEquals(expectedOutput, actualStdOut);
+                name, name));
         assertEquals(0, sut.purses[0]);
     }
 }

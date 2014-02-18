@@ -27,7 +27,7 @@ public class SystemOutRule extends ExternalResource {
 
     @Override
     protected void before() throws Throwable {
-        System.setOut(new PrintStream(bos, true, ENCODING));
+        System.setOut(new PrintStream(bos, false, ENCODING));
     }
 
     @Override

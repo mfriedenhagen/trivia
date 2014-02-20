@@ -5,6 +5,7 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import java.util.Arrays;
+import static org.hamcrest.Matchers.isEmptyString;
 import static org.hamcrest.Matchers.stringContainsInOrder;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -26,7 +27,7 @@ public abstract class AbstractGameTest {
     }
 
     void assertStdoutEmpty() {
-        assertStdoutEquals("");
+        assertThat(systemOutRule.toString(), isEmptyString());
     }
 
     void assertStdoutEquals(final StringBuilder out) {

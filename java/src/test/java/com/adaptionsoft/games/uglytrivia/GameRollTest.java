@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Locale;
 
@@ -106,7 +106,7 @@ public class GameRollTest extends AbstractGameTest {
                 "The category is Science%n" + //
                 "Science Question 0%n",
                 name, name, name, name, name, name, name, name, name));
-        assertEquals(1, sut.places[0]);
+        assertThat(sut.places[0]).isEqualTo(1);
     }
     @Test
     public void assertOnePlayerRollsTwoSixesAndAThree() {
@@ -135,6 +135,6 @@ public class GameRollTest extends AbstractGameTest {
                 "Rock Question 0%n",
                 name, name, name, name, name, name, name));
         //6 Hans Wurst's new location is 6 The category is Sports Sports Question 0 Hans Wurst is the current player They have rolled a 6 Hans Wurst's new location is 0 The category is Pop Pop Question 0 Hans Wurst is the current player They have rolled a 3 Hans Wurst's new location is 3 The category is Rock Rock] Question 0
-        assertEquals(3, sut.places[0]);
+        assertThat(sut.places[0]).isEqualTo(3);
     }
 }

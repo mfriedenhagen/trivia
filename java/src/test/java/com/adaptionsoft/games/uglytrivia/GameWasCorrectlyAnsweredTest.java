@@ -4,8 +4,8 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 import java.util.Locale;
 
@@ -26,13 +26,13 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
     public void assertOnePlayerNotInPenaltyBox() {
         final String name = "Hans Wurst 1";
         sut.add(name);
-        assertTrue(sut.wasCorrectlyAnswered());
+        assertThat(sut.wasCorrectlyAnswered()).isTrue();
         assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Answer was corrent!!!!%n" +//
                 "%s now has 1 Gold Coins.%n", name, name));
-        assertEquals(1, sut.purses[0]);
+        assertThat(sut.purses[0]).isEqualTo(1);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         final String name2 = "Hans Wurst 2";
         sut.add(name);
         sut.add(name2);
-        assertTrue(sut.wasCorrectlyAnswered());
+        assertThat(sut.wasCorrectlyAnswered()).isTrue();
         assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
@@ -49,7 +49,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
                 "They are player number 2%n" + //
                 "Answer was corrent!!!!%n" +//
                 "%s now has 1 Gold Coins.%n", name, name2, name));
-        assertEquals(1, sut.purses[0]);
+        assertThat(sut.purses[0]).isEqualTo(1);
     }
 
     @Test
@@ -58,7 +58,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.add(name);
         sut.wrongAnswer();
         sut.roll(3);
-        assertTrue(sut.wasCorrectlyAnswered());
+        assertThat(sut.wasCorrectlyAnswered()).isTrue();
         assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
@@ -73,7 +73,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
                 "Answer was correct!!!!%n" + //
                 "%s now has 1 Gold Coins.%n",
                 name, name, name, name, name, name));
-        assertEquals(1, sut.purses[0]);
+        assertThat(sut.purses[0]).isEqualTo(1);
     }
 
     @Test
@@ -81,13 +81,13 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         final String name = "Hans Wurst 1";
         sut.add(name);
         sut.wrongAnswer();
-        assertTrue(sut.wasCorrectlyAnswered());
+        assertThat(sut.wasCorrectlyAnswered()).isTrue();
         assertStdoutEquals(String.format(Locale.ENGLISH,
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //
                 "%s was sent to the penalty box%n",
                 name, name));
-        assertEquals(0, sut.purses[0]);
+        assertThat(sut.purses[0]).isEqualTo(0);
     }
 }

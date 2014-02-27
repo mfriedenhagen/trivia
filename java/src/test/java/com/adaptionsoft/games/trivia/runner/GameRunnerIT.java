@@ -5,7 +5,7 @@
 package com.adaptionsoft.games.trivia.runner;
 
 import com.adaptionsoft.games.uglytrivia.SystemOutRule;
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Random;
 
@@ -45,6 +45,6 @@ public class GameRunnerIT {
         final String expectedStdOut = Resources.toString(Resources.getResource(this.getClass(), "result.txt"), Charsets.UTF_8);
         new GameRunner(randomMock).main();
         final String capturedStdOut = String.valueOf(systemOutRule).replaceAll("\r\n", "\n");
-        assertEquals(expectedStdOut, capturedStdOut);
+        assertThat(capturedStdOut).isEqualTo(expectedStdOut);
     }
 }

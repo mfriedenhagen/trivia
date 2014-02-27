@@ -4,8 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 import org.junit.Test;
@@ -24,9 +23,10 @@ public class GameWrongAnswerTest extends AbstractGameTest {
     @Test
     public void assertForOnePlayerCurrentPlayerIsResetImmediately() {
         sut.add("Hans Wurst 1");
-        assertEquals(0, sut.currentPlayer);
-        assertTrue(sut.wrongAnswer());
-        assertEquals("Expected currentPlayer to be reset to 0", 0, sut.currentPlayer);
+        assertThat(sut.currentPlayer).isEqualTo(0);
+        assertThat(sut.wrongAnswer()).isTrue();
+        final int expectedPlayer = 0;
+        assertThat(sut.currentPlayer).as("Expected currentPlayer to be reset to %d", expectedPlayer).isEqualTo(expectedPlayer);
         assertThatStdoutContainsInOrder(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box");
@@ -35,11 +35,12 @@ public class GameWrongAnswerTest extends AbstractGameTest {
     public void assertForTwoPlayersCurrentPlayerIsResetAfterTheSecondInvocation() {
         sut.add("Hans Wurst 1");
         sut.add("Hans Wurst 2");
-        assertEquals(0, sut.currentPlayer);
-        assertTrue(sut.wrongAnswer());
-        assertEquals(1, sut.currentPlayer);
-        assertTrue(sut.wrongAnswer());
-        assertEquals("Expected currentPlayer to be reset to 0", 0, sut.currentPlayer);
+        assertThat(sut.currentPlayer).isEqualTo(0);
+        assertThat(sut.wrongAnswer()).isTrue();
+        assertThat(sut.currentPlayer).isEqualTo(1);
+        assertThat(sut.wrongAnswer()).isTrue();
+        final int expectedPlayer = 0;
+        assertThat(sut.currentPlayer). as("Expected currentPlayer to be reset to %d", expectedPlayer).isEqualTo(expectedPlayer);
         assertThatStdoutContainsInOrder(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box",

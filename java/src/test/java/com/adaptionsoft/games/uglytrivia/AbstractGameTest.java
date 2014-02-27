@@ -4,11 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.Arrays;
-import static org.hamcrest.Matchers.isEmptyString;
-import static org.hamcrest.Matchers.stringContainsInOrder;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Rule;
 
 /**
@@ -23,11 +19,11 @@ public abstract class AbstractGameTest {
     public final SystemOutRule systemOutRule = new SystemOutRule();
 
     void assertThatStdoutContainsInOrder(String... strings) {
-        assertThat(systemOutRule.toString(), stringContainsInOrder(Arrays.asList(strings)));
+        assertThat(systemOutRule.toString().split(System.lineSeparator())).containsSequence(strings);
     }
 
     void assertStdoutEmpty() {
-        assertThat(systemOutRule.toString(), isEmptyString());
+        assertThat(systemOutRule.toString()).isEmpty();
     }
 
     void assertStdoutEquals(final StringBuilder out) {
@@ -35,7 +31,7 @@ public abstract class AbstractGameTest {
     }
 
     void assertStdoutEquals(final String expectedOutput) {
-        assertEquals(expectedOutput, systemOutRule.toString());
+        assertThat(systemOutRule.toString()).isEqualTo(expectedOutput);
     }
 
 

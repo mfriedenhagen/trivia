@@ -20,6 +20,9 @@ public class GameCurrentCategoryTest extends AbstractGameTest {
         assertThatStdoutContainsInOrder(
                 "The category is Pop",
                 "Pop Question 0",
+                "Hans Wurst is the current player",
+                "They have rolled a 4",
+                "Hans Wurst's new location is 8",
                 "The category is Pop",
                 "Pop Question 1");
     }
@@ -31,11 +34,17 @@ public class GameCurrentCategoryTest extends AbstractGameTest {
         sut.roll(4);
         sut.roll(4);
         assertThatStdoutContainsInOrder(
-                "The category is Science",
-                "Science Question 0",
-                "The category is Science",
-                "Science Question 1",
-                "The category is Science",
-                "Science Question 2");
+            "The category is Science",
+            "Science Question 0",
+            "Hans Wurst is the current player",
+            "They have rolled a 4",
+            "Hans Wurst's new location is 5",
+            "The category is Science",
+            "Science Question 1",
+            "Hans Wurst is the current player",
+            "They have rolled a 4",
+            "Hans Wurst's new location is 9",
+            "The category is Science",
+            "Science Question 2");
     }
 }

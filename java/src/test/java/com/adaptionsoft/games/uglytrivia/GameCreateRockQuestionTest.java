@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -16,10 +16,10 @@ public class GameCreateRockQuestionTest extends AbstractGameTest {
 
     @Test
     public void checkAnswerForRockQuestionForZero() {
-        assertEquals("Rock Question 0", sut.createRockQuestion(0));
+        assertThat(sut.createRockQuestion(0)).isEqualTo("Rock Question 0");
     }
     @Test
     public void checkAnswerRockQuestionForSix() {
-        assertEquals("Rock Question 6", sut.createRockQuestion(6));
+        assertThat(sut.createRockQuestion(6)).isEqualTo("Rock Question 6");
     }
 }

@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Locale;
 
@@ -22,7 +22,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
 
     @Test
     public void checkNoPlayers() {
-        assertEquals(0, sut.howManyPlayers());
+        assertThat(sut.howManyPlayers()).isEqualTo(0);
         assertStdoutEmpty();
     }
 
@@ -31,7 +31,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
         final String name = "Hans Wurst";
         final StringBuilder out = new StringBuilder(addPlayer(name, 1));
         sut.add(name);
-        assertEquals(1, sut.howManyPlayers());
+        assertThat(sut.howManyPlayers()).isEqualTo(1);
         assertStdoutEquals(out);
     }
 
@@ -43,7 +43,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
             sut.add(name);
             out.append(addPlayer(name, i + 1));
         }
-        assertEquals(MAX_PLAYERS, sut.howManyPlayers());
+        assertThat(sut.howManyPlayers()).isEqualTo(MAX_PLAYERS);
         assertStdoutEquals(out);
     }
 

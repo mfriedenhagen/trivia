@@ -26,7 +26,7 @@
         <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
         <maven-site-plugin.version>3.3</maven-site-plugin.version>
         <maven-surefire-plugin.version>2.16</maven-surefire-plugin.version>
-        <jacoco-maven-plugin.version>0.6.4.201312101107</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.6.5.201403032054</jacoco-maven-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <netbeans.hint.jdkPlatform>JDK_1.7</netbeans.hint.jdkPlatform>
     </properties>

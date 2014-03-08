@@ -21,13 +21,13 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
     public static final int MAX_PLAYERS = 5;
 
     @Test
-    public void checkNoPlayers() {
+    public void assertThatAGameWithNoPlayersProducesNoOutput() {
         assertThat(sut.howManyPlayers()).isEqualTo(0);
         assertStdoutEmpty();
     }
 
     @Test
-    public void checkOnePlayer() {
+    public void assertThatAGameWithOnePlayerOnlyProducesOutputForOnePlayer() {
         final String name = "Hans Wurst";
         final StringBuilder out = new StringBuilder(addPlayer(name, 1));
         sut.add(name);
@@ -36,7 +36,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
     }
 
     @Test
-    public void checkFivePlayers() {
+    public void assertThatAGameWithFivePlayersProducesCorrectOutput() {
         StringBuilder out = new StringBuilder();
         for (int i = 0; i < MAX_PLAYERS; i++) {
             final String name = "Hans Wurst " + i;
@@ -48,8 +48,8 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
-    public void checkSixPlayers() {
-        checkFivePlayers();
+    public void assertThatAGameWithSixPlayersRaisesAnException() {
+        assertThatAGameWithFivePlayersProducesCorrectOutput();
         sut.add("Hans Wurst " + 6);
     }
 

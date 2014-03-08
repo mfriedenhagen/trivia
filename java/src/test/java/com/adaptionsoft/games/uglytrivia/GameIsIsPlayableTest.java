@@ -15,7 +15,7 @@ import org.junit.Test;
 public class GameIsIsPlayableTest extends AbstractGameTest {
 
     @Test
-    public void checkThatAGameWithNoPlayersIsNotPlayable() {
+    public void assertThatAGameWithNoPlayersIsNotPlayable() {
         assertThat(sut.isPlayable()).isFalse().as("A game with no players should not be playable.");
     }
 

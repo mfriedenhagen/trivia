@@ -27,7 +27,7 @@ import static org.mockito.Mockito.when;
 public class GameRunnerIT {
 
     @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule();
+    public final SystemOutRule systemOutRule = SystemOutRule.create();
 
     private final Random randomMock = mock(Random.class);
 

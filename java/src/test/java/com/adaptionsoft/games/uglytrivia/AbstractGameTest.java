@@ -16,7 +16,7 @@ public abstract class AbstractGameTest {
     final Game sut = new Game();
 
     @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule();
+    public final SystemOutRule systemOutRule = SystemOutRule.create();
 
     void assertThatStdoutContainsInOrder(String... strings) {
         assertThat(systemOutRule.toString().split(System.lineSeparator())).containsSequence(strings);

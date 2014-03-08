@@ -22,7 +22,11 @@ public class SystemOutRule extends ExternalResource {
 
     private final ByteArrayOutputStream bos = new ByteArrayOutputStream();
 
-    public SystemOutRule() {
+    private SystemOutRule() {
+    }
+
+    public static SystemOutRule create() {
+        return new SystemOutRule();
     }
 
     @Override

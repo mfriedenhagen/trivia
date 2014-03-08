@@ -4,8 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -16,19 +15,19 @@ import org.junit.Test;
 public class GameIsIsPlayableTest extends AbstractGameTest {
 
     @Test
-    public void assertThatAGameWithNoPlayersIsNotPlayable() {
-        assertFalse("A game with no players should not be playable.", sut.isPlayable());
+    public void checkThatAGameWithNoPlayersIsNotPlayable() {
+        assertThat(sut.isPlayable()).isFalse().as("A game with no players should not be playable.");
     }
 
     @Test
     public void assertThatAGameWithOnePlayerIsNotPlayable() {
         sut.add("Hans Wurst");
-        assertFalse("A game with one player should not be playable.", sut.isPlayable());
+        assertThat(sut.isPlayable()).isFalse().as("A game with one player should not be playable.");
     }
     @Test
     public void assertThatAGameWithMoreThanOnePlayerIsPlayable() {
         sut.add("Hans Wurst 1");
         sut.add("Hans Wurst 2");
-        assertTrue("A game with more than one player should be playable.", sut.isPlayable());
+        assertThat(sut.isPlayable()).isTrue().as("A game with more than one player should be playable.");
     }
 }

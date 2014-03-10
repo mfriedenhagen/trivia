@@ -4,6 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
+import java.util.Locale;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Rule;
 
@@ -30,9 +31,11 @@ public abstract class AbstractGameTest {
         assertStdoutEquals(out.toString());
     }
 
+    void assertStdoutEquals(final String format, Object... params) {
+        assertStdoutEquals(String.format(Locale.ENGLISH, format, params));
+    }
+
     void assertStdoutEquals(final String expectedOutput) {
         assertThat(systemOutRule.toString()).isEqualTo(expectedOutput);
     }
-
-
 }

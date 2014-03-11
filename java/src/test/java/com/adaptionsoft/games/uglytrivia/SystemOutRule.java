@@ -42,9 +42,14 @@ public class SystemOutRule extends ExternalResource {
     @Override
     public String toString() {
         try {
-            return new String(bos.toByteArray(), ENCODING);
+            final String out = new String(bos.toByteArray(), ENCODING);
+            return out.replace("\r\n", "\n");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String[] toLines() {
+        return toString().split("\n");
     }
 }

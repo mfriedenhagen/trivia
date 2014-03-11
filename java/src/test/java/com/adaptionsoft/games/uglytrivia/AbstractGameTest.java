@@ -4,8 +4,6 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.Locale;
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Rule;
 
 /**
@@ -18,24 +16,4 @@ public abstract class AbstractGameTest {
 
     @Rule
     public final SystemOutRule systemOutRule = SystemOutRule.create();
-
-    void assertThatStdoutContainsInOrder(String... strings) {
-        assertThat(systemOutRule.toString().split(System.lineSeparator())).containsSequence(strings);
-    }
-
-    void assertStdoutEmpty() {
-        assertThat(systemOutRule.toString()).isEmpty();
-    }
-
-    void assertStdoutEquals(final StringBuilder out) {
-        assertStdoutEquals(out.toString());
-    }
-
-    void assertStdoutEquals(final String format, Object... params) {
-        assertStdoutEquals(String.format(Locale.ENGLISH, format, params));
-    }
-
-    void assertStdoutEquals(final String expectedOutput) {
-        assertThat(systemOutRule.toString()).isEqualTo(expectedOutput);
-    }
 }

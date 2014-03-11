@@ -5,6 +5,7 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import org.junit.Test;
+import static com.adaptionsoft.games.uglytrivia.ProjectAssertions.assertThat;
 
 /**
  *
@@ -17,7 +18,7 @@ public class GameCurrentCategoryTest extends AbstractGameTest {
         sut.add("Hans Wurst");
         sut.roll(4);
         sut.roll(4);
-        assertThatStdoutContainsInOrder(
+        assertThat(systemOutRule).containsSequence(
                 "The category is Pop",
                 "Pop Question 0",
                 "Hans Wurst is the current player",
@@ -33,7 +34,7 @@ public class GameCurrentCategoryTest extends AbstractGameTest {
         sut.roll(1);
         sut.roll(4);
         sut.roll(4);
-        assertThatStdoutContainsInOrder(
+        assertThat(systemOutRule).containsSequence(
             "The category is Science",
             "Science Question 0",
             "Hans Wurst is the current player",

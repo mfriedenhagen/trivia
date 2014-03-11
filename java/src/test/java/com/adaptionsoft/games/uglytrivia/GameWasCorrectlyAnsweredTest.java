@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.adaptionsoft.games.uglytrivia.ProjectAssertions.assertThat;
 
 
 
@@ -26,7 +26,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         final String name = "Hans Wurst 1";
         sut.add(name);
         assertThat(sut.wasCorrectlyAnswered()).isTrue();
-        assertStdoutEquals(
+        assertThat(systemOutRule).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Answer was corrent!!!!%n" +//
@@ -41,7 +41,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.add(name);
         sut.add(name2);
         assertThat(sut.wasCorrectlyAnswered()).isTrue();
-        assertStdoutEquals(
+        assertThat(systemOutRule).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "%s was added%n" + //
@@ -58,7 +58,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.wrongAnswer();
         sut.roll(3);
         assertThat(sut.wasCorrectlyAnswered()).isTrue();
-        assertStdoutEquals(
+        assertThat(systemOutRule).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //
@@ -81,7 +81,7 @@ public class GameWasCorrectlyAnsweredTest extends AbstractGameTest {
         sut.add(name);
         sut.wrongAnswer();
         assertThat(sut.wasCorrectlyAnswered()).isTrue();
-        assertStdoutEquals(
+        assertThat(systemOutRule).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //

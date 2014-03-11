@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.adaptionsoft.games.uglytrivia.ProjectAssertions.assertThat;
 
 import java.util.Locale;
 
@@ -23,7 +23,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
     @Test
     public void assertThatAGameWithNoPlayersProducesNoOutput() {
         assertThat(sut.howManyPlayers()).isEqualTo(0);
-        assertStdoutEmpty();
+        assertThat(systemOutRule).isEmpty();
     }
 
     @Test
@@ -32,7 +32,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
         final StringBuilder out = new StringBuilder(addPlayer(name, 1));
         sut.add(name);
         assertThat(sut.howManyPlayers()).isEqualTo(1);
-        assertStdoutEquals(out);
+        assertThat(systemOutRule).isEqualTo(out);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
             out.append(addPlayer(name, i + 1));
         }
         assertThat(sut.howManyPlayers()).isEqualTo(MAX_PLAYERS);
-        assertStdoutEquals(out);
+        assertThat(systemOutRule).isEqualTo(out);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)

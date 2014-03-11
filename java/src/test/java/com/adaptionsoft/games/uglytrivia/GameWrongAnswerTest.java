@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.adaptionsoft.games.uglytrivia.ProjectAssertions.assertThat;
 
 
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         assertThat(sut.wrongAnswer()).isTrue();
         final int expectedPlayer = 0;
         assertThat(sut.currentPlayer).as("Expected currentPlayer to be reset to %d", expectedPlayer).isEqualTo(expectedPlayer);
-        assertThatStdoutContainsInOrder(
+        assertThat(systemOutRule).containsSequence(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box");
     }
@@ -41,7 +41,7 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         assertThat(sut.wrongAnswer()).isTrue();
         final int expectedPlayer = 0;
         assertThat(sut.currentPlayer). as("Expected currentPlayer to be reset to %d", expectedPlayer).isEqualTo(expectedPlayer);
-        assertThatStdoutContainsInOrder(
+        assertThat(systemOutRule).containsSequence(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box",
                 "Question was incorrectly answered",

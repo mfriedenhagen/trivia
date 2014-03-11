@@ -4,7 +4,7 @@
  */
 package com.adaptionsoft.games.uglytrivia;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.adaptionsoft.games.uglytrivia.ProjectAssertions.assertThat;
 
 import org.junit.Test;
 

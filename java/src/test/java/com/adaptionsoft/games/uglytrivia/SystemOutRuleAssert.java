@@ -14,13 +14,13 @@ import org.assertj.core.api.Assertions;
  *
  * @author Mirko Friedenhagen
  */
-public class SystemOutAssert extends AbstractAssert<SystemOutAssert, SystemOutRule>{
+public class SystemOutRuleAssert extends AbstractAssert<SystemOutRuleAssert, SystemOutRule>{
 
-    SystemOutAssert(SystemOutRule actual) {
-        super(actual, SystemOutAssert.class);
+    SystemOutRuleAssert(SystemOutRule actual) {
+        super(actual, SystemOutRuleAssert.class);
     }
 
-    public SystemOutAssert isEmpty() {
+    public SystemOutRuleAssert isEmpty() {
         isNotNull();
         if (!actual.toString().isEmpty()) {
             failWithMessage("Expected System.out to be empty");
@@ -28,7 +28,7 @@ public class SystemOutAssert extends AbstractAssert<SystemOutAssert, SystemOutRu
         return this;
     }
 
-    public SystemOutAssert isEqualTo(String out) {
+    public SystemOutRuleAssert isEqualTo(String out) {
         isNotNull();
         final String stdoutToString = actual.toString();
         if (!stdoutToString.equals(out)) {
@@ -37,17 +37,17 @@ public class SystemOutAssert extends AbstractAssert<SystemOutAssert, SystemOutRu
         return this;
     }
 
-    public SystemOutAssert isEqualTo(StringBuilder out) {
+    public SystemOutRuleAssert isEqualTo(StringBuilder out) {
         isNotNull();
         return isEqualTo(out.toString());
     }
 
-    public SystemOutAssert isEqualTo(final String format, Object... params) {
+    public SystemOutRuleAssert isEqualTo(final String format, Object... params) {
         isNotNull();
         return isEqualTo(String.format(Locale.ENGLISH, format, params));
     }
 
-    public SystemOutAssert containsSequence(String... strings) {
+    public SystemOutRuleAssert containsSequence(String... strings) {
         isNotNull();
         Assertions.assertThat(actual.toLines()).containsSequence(strings);
         return this;

@@ -14,7 +14,7 @@ import org.assertj.core.api.Assertions;
  */
 public class ProjectAssertions extends Assertions {
 
-    public static SystemOutAssert assertThat(SystemOutRule actual) {
-        return new SystemOutAssert(actual);
+    public static SystemOutRuleAssert assertThat(SystemOutRule actual) {
+        return new SystemOutRuleAssert(actual);
     }
 }

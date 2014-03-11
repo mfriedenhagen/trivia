@@ -27,7 +27,7 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         assertThat(sut.wrongAnswer()).isTrue();
         final int expectedPlayer = 0;
         assertThat(sut.currentPlayer).as("Expected currentPlayer to be reset to %d", expectedPlayer).isEqualTo(expectedPlayer);
-        assertThat(systemOutRule).containsSequence(
+        assertThat(systemOut).containsSequence(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box");
     }
@@ -41,7 +41,7 @@ public class GameWrongAnswerTest extends AbstractGameTest {
         assertThat(sut.wrongAnswer()).isTrue();
         final int expectedPlayer = 0;
         assertThat(sut.currentPlayer). as("Expected currentPlayer to be reset to %d", expectedPlayer).isEqualTo(expectedPlayer);
-        assertThat(systemOutRule).containsSequence(
+        assertThat(systemOut).containsSequence(
                 "Question was incorrectly answered",
                 "Hans Wurst 1 was sent to the penalty box",
                 "Question was incorrectly answered",

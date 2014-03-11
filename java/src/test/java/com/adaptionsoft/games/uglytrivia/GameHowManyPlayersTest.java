@@ -23,7 +23,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
     @Test
     public void assertThatAGameWithNoPlayersProducesNoOutput() {
         assertThat(sut.howManyPlayers()).isEqualTo(0);
-        assertThat(systemOutRule).isEmpty();
+        assertThat(systemOut).isEmpty();
     }
 
     @Test
@@ -32,7 +32,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
         final StringBuilder out = new StringBuilder(addPlayer(name, 1));
         sut.add(name);
         assertThat(sut.howManyPlayers()).isEqualTo(1);
-        assertThat(systemOutRule).isEqualTo(out);
+        assertThat(systemOut).isEqualTo(out);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class GameHowManyPlayersTest extends AbstractGameTest {
             out.append(addPlayer(name, i + 1));
         }
         assertThat(sut.howManyPlayers()).isEqualTo(MAX_PLAYERS);
-        assertThat(systemOutRule).isEqualTo(out);
+        assertThat(systemOut).isEqualTo(out);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)

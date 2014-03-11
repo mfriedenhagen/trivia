@@ -26,7 +26,7 @@ public class GameRollTest extends AbstractGameTest {
         final int roll = 2;
         sut.add(name);
         sut.roll(roll);
-        assertThat(systemOutRule).isEqualTo(
+        assertThat(systemOut).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "%s is the current player%n" + //
@@ -43,7 +43,7 @@ public class GameRollTest extends AbstractGameTest {
         sut.add(name);
         sut.wrongAnswer();
         sut.roll(roll);
-        assertThat(systemOutRule).isEqualTo(
+        assertThat(systemOut).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //
@@ -61,7 +61,7 @@ public class GameRollTest extends AbstractGameTest {
         sut.add(name);
         sut.wrongAnswer();
         sut.roll(roll);
-        assertThat(systemOutRule).isEqualTo(
+        assertThat(systemOut).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "Question was incorrectly answered%n" + //
@@ -83,7 +83,7 @@ public class GameRollTest extends AbstractGameTest {
         sut.roll(4);
         sut.wrongAnswer();
         sut.roll(3);
-        assertThat(systemOutRule).isEqualTo(
+        assertThat(systemOut).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "%s is the current player%n"+ //
@@ -114,7 +114,7 @@ public class GameRollTest extends AbstractGameTest {
         sut.roll(6);
         sut.roll(6);
         sut.roll(3);
-        assertThat(systemOutRule).isEqualTo(
+        assertThat(systemOut).isEqualTo(
                 "%s was added%n" + //
                 "They are player number 1%n" + //
                 "%s is the current player%n" + //

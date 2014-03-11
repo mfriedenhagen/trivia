@@ -15,5 +15,5 @@ public abstract class AbstractGameTest {
     final Game sut = new Game();
 
     @Rule
-    public final SystemOutRule systemOutRule = SystemOutRule.create();
+    public final SystemOutRule systemOut = SystemOutRule.create();
 }

@@ -22,18 +22,18 @@ public class SystemOutRuleAssert extends AbstractAssert<SystemOutRuleAssert, Sys
 
     public SystemOutRuleAssert isEmpty() {
         isNotNull();
-        if (!actual.toString().isEmpty()) {
-            failWithMessage("Expected System.out to be empty");
-        }
+        Assertions.assertThat(actual.toString())
+                .as("Expected System.out to be empty")
+                .isEmpty();
         return this;
     }
 
     public SystemOutRuleAssert isEqualTo(String out) {
         isNotNull();
         final String stdoutToString = actual.toString();
-        if (!stdoutToString.equals(out)) {
-            failWithMessage("Expected System.out to be %s but was %s", out, stdoutToString);
-        }
+        Assertions.assertThat(stdoutToString)
+                .as("Expected System.out to be:\n%s\nbut got:\n%s", out, stdoutToString)
+                .isEqualTo(out);
         return this;
     }
 

@@ -23,13 +23,12 @@
     </issueManagement>
     <ciManagement>
         <system>Jenkins</system>
-        <url>http://huschteguzzel.de/hudson/mirkos-trivia/</url>
+        <url>http://huschteguzzel.de/hudson/job/mirkos-trivia/</url>
     </ciManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <cobertura-maven-plugin.version>2.5.1</cobertura-maven-plugin.version>
         <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
         <maven-site-plugin.version>3.3</maven-site-plugin.version>
         <maven-surefire-plugin.version>2.16</maven-surefire-plugin.version>

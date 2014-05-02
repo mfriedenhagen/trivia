@@ -23,7 +23,7 @@
     </issueManagement>
     <ciManagement>
         <system>Jenkins</system>
-        <url>http://huschteguzzel.de/hudson/job/mirkos-trivia/</url>
+        <url>https://huschteguzzel.de/hudson/job/mirkos-trivia/</url>
     </ciManagement>
 
     <properties>

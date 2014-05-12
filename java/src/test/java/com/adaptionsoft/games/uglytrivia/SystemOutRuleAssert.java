@@ -23,7 +23,7 @@ public class SystemOutRuleAssert extends AbstractAssert<SystemOutRuleAssert, Sys
     public SystemOutRuleAssert isEmpty() {
         isNotNull();
         Assertions.assertThat(actual.toString())
-                .as("Expected System.out to be empty")
+                .as("Expected System.out to be empty!")
                 .isEmpty();
         return this;
     }
@@ -32,7 +32,7 @@ public class SystemOutRuleAssert extends AbstractAssert<SystemOutRuleAssert, Sys
         isNotNull();
         final String stdoutToString = actual.toString();
         Assertions.assertThat(stdoutToString)
-                .as("Expected System.out to be:\n%s\nbut got:\n%s", out, stdoutToString)
+                .as("Unexpected System.out!")
                 .isEqualTo(out);
         return this;
     }

@@ -34,6 +34,7 @@
         <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
         <jacoco-maven-plugin.version>0.7.1.201405082137</jacoco-maven-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <versions-maven-plugin.version>2.1</versions-maven-plugin.version>
         <netbeans.hint.jdkPlatform>JDK_1.7</netbeans.hint.jdkPlatform>
     </properties>
 
@@ -143,4 +144,29 @@
         </plugins>
     </reporting>
 
+    <profiles>
+        <profile>
+            <id>update-versions</id>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>${versions-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>update-properties</goal>
+                                    <goal>use-latest-releases</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

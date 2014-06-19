@@ -30,8 +30,7 @@ public class SystemOutRuleAssert extends AbstractAssert<SystemOutRuleAssert, Sys
 
     public SystemOutRuleAssert isEqualTo(String out) {
         isNotNull();
-        final String stdoutToString = actual.toString();
-        Assertions.assertThat(stdoutToString)
+        Assertions.assertThat(actual.toString())
                 .as("Unexpected System.out!")
                 .isEqualTo(out);
         return this;

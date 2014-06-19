@@ -191,6 +191,9 @@
                                     <goal>update-properties</goal>
                                     <goal>use-latest-releases</goal>
                                 </goals>
+                                <configuration>
+                                    <generateBackupPoms>false</generateBackupPoms>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

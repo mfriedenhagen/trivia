@@ -11,7 +11,7 @@
     <description>Sample Implementation of Trivia Tests</description>
     <url>https://github.com/mfriedenhagen/trivia</url>
     <inceptionYear>2012</inceptionYear>
-
+    <!-- test push -->
     <scm>
         <connection>scm:git:git://github.com/mfriedenhagen/trivia.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/mfriedenhagen/trivia.git</developerConnection>

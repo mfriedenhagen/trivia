@@ -131,6 +131,9 @@
                 <artifactId>takari-lifecycle-plugin</artifactId>
                 <version>1.10.0</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <sourceJar>true</sourceJar>
+                </configuration>
             </plugin>
         </plugins>
     </build>

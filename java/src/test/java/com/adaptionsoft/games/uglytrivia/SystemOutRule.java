@@ -18,9 +18,11 @@ public class SystemOutRule extends ExternalResource {
 
     private static final String ENCODING = "UTF-8";
 
+    private static final int BUFFER_SIZE = 1024;
+
     private final PrintStream originalSystemOut = System.out;
 
-    private final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream bos = new ByteArrayOutputStream(BUFFER_SIZE);
 
     private SystemOutRule() {
     }

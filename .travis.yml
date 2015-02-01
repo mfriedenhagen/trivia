@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk7
+  - oraclejdk8
 install: "mvn --show-version --errors --batch-mode --file java/pom.xml validate dependency:go-offline"
 script: "mvn --show-version --errors --batch-mode --file java/pom.xml clean verify site"
 cache:

@@ -1,0 +1,23 @@
+test:jdk8:
+  stage: test
+  script:
+    - 'mvn --file java/pom.xml verify site'
+  except:
+    - gh-pages
+  image: maven:3.3.9-jdk-8
+  artifacts:
+    paths:
+      - java/target/site
+
+pages:
+  stage: deploy
+  script:
+    - mv java/target/site public
+  dependencies:
+    - test:jdk8
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
+

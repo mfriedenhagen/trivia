@@ -5,13 +5,15 @@
 package com.adaptionsoft.games.trivia.runner;
 
 import com.adaptionsoft.games.uglytrivia.SystemOutRule;
+
 import static com.adaptionsoft.games.uglytrivia.ProjectAssertions.assertThat;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Random;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -22,6 +24,7 @@ import static org.mockito.Mockito.when;
 
 /**
  * Unfortuna
+ *
  * @author Mirko Friedenhagen <mfriedenhagen-at-gmail.com>
  */
 public class GameRunnerIT {
@@ -44,8 +47,11 @@ public class GameRunnerIT {
      */
     @Test
     public void testMain() throws IOException {
-        final String expectedStdOut = Resources.toString(Resources.getResource(this.getClass(), "result.txt"), Charsets.UTF_8);
+        final String expectedOutput;
+        try (final BufferedReader buffer = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("result.txt"), "UTF-8"))) {
+            expectedOutput = buffer.lines().collect(Collectors.joining("\n"));
+        }
         new GameRunner(randomMock).main();
-        assertThat(systemOutRule).isEqualTo(expectedStdOut);
+        assertThat(systemOutRule).isEqualTo(expectedOutput);
     }
 }

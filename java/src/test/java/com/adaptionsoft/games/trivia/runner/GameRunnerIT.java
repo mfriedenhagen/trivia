@@ -49,7 +49,7 @@ public class GameRunnerIT {
     public void testMain() throws IOException {
         final String expectedOutput;
         try (final BufferedReader buffer = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("result.txt"), "UTF-8"))) {
-            expectedOutput = buffer.lines().collect(Collectors.joining("\n"));
+            expectedOutput = buffer.lines().collect(Collectors.joining("\n")) + "\n";
         }
         new GameRunner(randomMock).main();
         assertThat(systemOutRule).isEqualTo(expectedOutput);

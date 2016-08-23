@@ -33,6 +33,7 @@ public class SystemOutRule extends ExternalResource {
 
     @Override
     protected void before() throws Throwable {
+        bos.reset();
         System.setOut(new PrintStream(bos, false, ENCODING));
     }
 

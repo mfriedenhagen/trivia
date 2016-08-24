@@ -12,7 +12,7 @@ import io.kotlintest.specs.ShouldSpec
  */
 class GameIsIsPlayableTest : ShouldSpec() {
 
-    val systemOut : SystemOutRule = SystemOutRule.create()
+    val systemOut = SystemOutRule.create()
 
     override fun beforeEach() {
         systemOut.before()
@@ -23,22 +23,18 @@ class GameIsIsPlayableTest : ShouldSpec() {
     }
 
     init {
-        "A game with no players" {
-            val sut = Game()
-            should("should not be playable.") {
+        "A game" {
+            should("not be playable with no players.") {
+                val sut = Game()
                 sut.isPlayable shouldBe false
             }
-        }
-        "A game with one player" {
-            val sut = Game()
-            should("should not be playable.") {
+            should("not be playable with one player.") {
+                val sut = Game()
                 sut.add("Hans Wurst")
                 sut.isPlayable shouldBe false
             }
-        }
-        "A game with more than one player" {
-            val sut = Game()
-            should("should be playable.") {
+            should("be playable with more than one player.") {
+                val sut = Game()
                 sut.add("Hans Wurst 1")
                 sut.add("Hans Wurst 2")
                 sut.isPlayable shouldBe true

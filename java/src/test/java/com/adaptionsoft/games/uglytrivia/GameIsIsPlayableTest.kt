@@ -31,16 +31,16 @@ class GameIsIsPlayableTest : ShouldSpec() {
         }
         "A game with one player" {
             val sut = Game()
-            sut.add("Hans Wurst")
             should("should not be playable.") {
+                sut.add("Hans Wurst")
                 sut.isPlayable shouldBe false
             }
         }
         "A game with more than one player" {
             val sut = Game()
-            sut.add("Hans Wurst 1")
-            sut.add("Hans Wurst 2")
             should("should be playable.") {
+                sut.add("Hans Wurst 1")
+                sut.add("Hans Wurst 2")
                 sut.isPlayable shouldBe true
             }
         }

@@ -4,23 +4,10 @@
  */
 package com.adaptionsoft.games.uglytrivia
 
-import io.kotlintest.specs.ShouldSpec
-
 /**
-
  * @author Mirko Friedenhagen
  */
-class GameIsIsPlayableTest : ShouldSpec() {
-
-    val systemOut = SystemOutRule.create()
-
-    override fun beforeEach() {
-        systemOut.before()
-    }
-
-    override fun afterEach() {
-        systemOut.after()
-    }
+class GameIsIsPlayableTest : SystemOutShouldSpec() {
 
     init {
         "A game" {

@@ -48,7 +48,7 @@
         <netbeans.hint.jdkPlatform>JDK_1.8</netbeans.hint.jdkPlatform>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <kotlin.version>1.0.3</kotlin.version>
+        <kotlin.version>1.0.4</kotlin.version>
         <libs-releases>file:///tmp/repo</libs-releases>
         <libs-snapshot>file:///tmp/repo</libs-snapshot>
     </properties>

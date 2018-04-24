@@ -1,0 +1,7 @@
+image: golang
+
+build:
+  script:
+    - cd go
+    #- go vet -v
+    - go test -v

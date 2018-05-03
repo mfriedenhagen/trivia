@@ -211,16 +211,20 @@ func (me *Game) WrongAnswer() bool {
 }
 
 func main() {
+	r:=rand.New(rand.NewSource(time.Now().UTC().UnixNano()))
+	doMain(r)
+}
+
+type rndInter interface {
+	Intn(n int) int
+}
+
+func doMain(rand rndInter) {
 	notAWinner := false
-
 	game := NewGame()
-
 	game.Add("Chet")
 	game.Add("Pat")
 	game.Add("Sue")
-
-	rand.Seed(time.Now().UTC().UnixNano())
-
 	for {
 		game.Roll(rand.Intn(5) + 1)
 

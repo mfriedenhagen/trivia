@@ -39,28 +39,24 @@ func TestComplete(t *testing.T) {
 	}
 }
 
-type Runnable func()
+func dieOn(err error, t *testing.T) {
+	if err != nil {
+		t.Fatal(err)
+	}
+}
 
-func catchStdOut(t *testing.T, runnable Runnable) (string) {
+// Returns output to `os.Stdout` from `runnable` as string.
+func catchStdOut(t *testing.T, runnable func()) (string) {
 	realStdout := os.Stdout
 	defer func() { os.Stdout = realStdout }()
-	var fakeStdout *os.File
-	var err error
-	if fakeStdout, err = ioutil.TempFile("", "trivia-stdout"); err != nil {
-		t.Fatal(err)
-	}
+	r, fakeStdout, err := os.Pipe()
+	dieOn(err, t)
 	os.Stdout = fakeStdout
-	tempfileName := fakeStdout.Name()
 	runnable()
-	if err := fakeStdout.Close(); err != nil {
-		t.Fatal(err)
-	}
-	var newOutBytes []byte
-	if newOutBytes, err = ioutil.ReadFile(tempfileName); err != nil {
-		t.Fatal(err)
-	}
-	if err = os.Remove(tempfileName) ; err != nil {
-		t.Fatal(err)
-	}
+	// need to close here, otherwise ReadAll never gets "EOF".
+	dieOn(fakeStdout.Close(), t)
+	newOutBytes, err := ioutil.ReadAll(r)
+	dieOn(err, t)
+	dieOn(r.Close(), t)
 	return string(newOutBytes)
 }
